@@ -1,5 +1,5 @@
 import "../App.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   FaBell,
   FaChevronDown,
@@ -18,10 +18,38 @@ import {
   FaLinkedin,
   FaTwitter,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function EnterprisePage() {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const userMenuRef = useRef(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isUserMenuOpen) {
+      return undefined;
+    }
+
+    const handleOutsideClick = (event) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setIsUserMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [isUserMenuOpen]);
 
   return (
     <div className="app-root enterprise-root">
@@ -45,7 +73,11 @@ function EnterprisePage() {
           <a href="#about">A propos de nous</a>
         </nav>
 
-        <div className="topbar-right" aria-label="Actions utilisateur">
+        <div
+          className="topbar-right"
+          aria-label="Actions utilisateur"
+          ref={userMenuRef}
+        >
           <button className="icon-btn" type="button" aria-label="Notifications">
             <span className="bell-dot" />
             <FaBell aria-hidden="true" />
@@ -55,6 +87,7 @@ function EnterprisePage() {
             type="button"
             aria-label="Profil utilisateur"
             aria-expanded={isUserMenuOpen}
+            aria-haspopup="menu"
             onClick={() => setIsUserMenuOpen((prev) => !prev)}
           >
             <span className="avatar" aria-hidden="true" />
@@ -90,6 +123,10 @@ function EnterprisePage() {
                 type="button"
                 className="enterprise-user-menu-item"
                 role="menuitem"
+                onClick={() => {
+                  setIsUserMenuOpen(false);
+                  navigate("/dashboard");
+                }}
               >
                 <FaThLarge aria-hidden="true" />
                 Dashboard
