@@ -1,14 +1,14 @@
 import "../styles/Dashboard.css";
+import "../styles/Missions.css";
 import {
-  FaBriefcase,
-  FaBoxOpen,
   FaCalendarAlt,
   FaChevronDown,
   FaEllipsisH,
-  FaMoneyBillWave,
+  FaPlus,
+  FaSearch,
   FaTrashAlt,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DashboardSidebar from "../components/DashboardSidebar";
 
 const missionRows = [
@@ -49,6 +49,15 @@ const missionRows = [
     statusClass: "done",
   },
   {
+    id: "#876364",
+    poste: "Commerciale",
+    tache: "Prospections, repondre aux appels...",
+    debut: "08 Sept, 2024",
+    fin: "12 Sept, 2024",
+    status: "Terminé",
+    statusClass: "done",
+  },
+  {
     id: "#176364",
     poste: "Livreur",
     tache: "Distributions des produits",
@@ -57,79 +66,86 @@ const missionRows = [
     status: "Non commencé",
     statusClass: "todo",
   },
+  {
+    id: "#876364",
+    poste: "Commerciale",
+    tache: "Prospections, repondre aux appels...",
+    debut: "08 Sept, 2024",
+    fin: "12 Sept, 2024",
+    status: "Terminé",
+    statusClass: "done",
+  },
+  {
+    id: "#176364",
+    poste: "Livreur",
+    tache: "Distributions des produits",
+    debut: "16 Sept, 2024",
+    fin: "16 Sept, 2024",
+    status: "Non commencé",
+    statusClass: "todo",
+  },
+  {
+    id: "#876364",
+    poste: "Commerciale",
+    tache: "Prospections, repondre aux appels...",
+    debut: "08 Sept, 2024",
+    fin: "12 Sept, 2024",
+    status: "Terminé",
+    statusClass: "done",
+  },
+  {
+    id: "#876364",
+    poste: "Commerciale",
+    tache: "Prospections, repondre aux appels...",
+    debut: "08 Sept, 2024",
+    fin: "12 Sept, 2024",
+    status: "Terminé",
+    statusClass: "done",
+  },
+  {
+    id: "#876364",
+    poste: "Commerciale",
+    tache: "Prospections, repondre aux appels...",
+    debut: "08 Sept, 2024",
+    fin: "12 Sept, 2024",
+    status: "Terminé",
+    statusClass: "done",
+  },
 ];
 
-function DashboardPage() {
+function MissionsPage() {
+  const navigate = useNavigate();
   return (
     <div className="db-root">
       {/* ─── Sidebar ─── */}
-      <DashboardSidebar activePage="dashboard" />
+      <DashboardSidebar activePage="missions" />
 
       {/* ─── Zone principale ─── */}
       <main className="db-main">
         {/* Barre du haut */}
         <div className="db-topbar">
-          <h1 className="db-page-title">Dashboard</h1>
-          <div className="db-date-filters">
-            <button className="db-date-btn" type="button">
-              01-09-2024 <FaChevronDown />
-            </button>
-            <button className="db-date-btn" type="button">
-              20-09-2024 <FaChevronDown />
+          <h1 className="db-page-title">Missions</h1>
+          <div className="db-missions-actions">
+            <div className="db-search-box">
+              <input
+                type="text"
+                placeholder="chercher"
+                aria-label="Rechercher une mission"
+              />
+              <FaSearch className="db-search-icon" />
+            </div>
+            <button
+              className="db-new-btn"
+              type="button"
+              onClick={() => navigate("/missions/nouveau")}
+            >
+              <FaPlus /> Nouveau
             </button>
           </div>
         </div>
 
-        {/* Statistiques */}
-        <div className="db-stats-grid">
-          <div className="db-stat-card">
-            <span className="db-stat-icon sky">
-              <FaBriefcase />
-            </span>
-            <div>
-              <p className="db-stat-value">12+</p>
-              <p className="db-stat-label">Jobs postés</p>
-            </div>
-          </div>
-          <div className="db-stat-card">
-            <span className="db-stat-icon sand">
-              <FaBoxOpen />
-            </span>
-            <div>
-              <p className="db-stat-value">07</p>
-              <p className="db-stat-label">Mission achevés</p>
-            </div>
-          </div>
-          <div className="db-stat-card">
-            <span className="db-stat-icon pink">
-              <FaBriefcase />
-            </span>
-            <div>
-              <p className="db-stat-value">05</p>
-              <p className="db-stat-label">Postes</p>
-            </div>
-          </div>
-          <div className="db-stat-card money">
-            <span className="db-stat-icon green">
-              <FaMoneyBillWave />
-            </span>
-            <div>
-              <p className="db-stat-value">
-                120.000 <span className="db-fcfa">FCFA</span>
-              </p>
-              <p className="db-stat-label">investis</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Tableau des missions */}
+        {/* Tableau complet des missions */}
         <div className="db-table-section">
-          <div className="db-table-header">
-            <h2 className="db-table-title">Les missions</h2>
-            <Link className="db-voir-plus" to="/missions">
-              Voir plus
-            </Link>
-          </div>
           <table className="db-table">
             <thead>
               <tr>
@@ -202,4 +218,4 @@ function DashboardPage() {
   );
 }
 
-export default DashboardPage;
+export default MissionsPage;

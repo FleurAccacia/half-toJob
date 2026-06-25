@@ -1,0 +1,64 @@
+﻿/* ══════════════════════════════
+   PAGE MISSIONS — barre du haut
+══════════════════════════════ */
+.db-missions-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.db-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.db-search-box input {
+  padding: 8px 36px 8px 14px;
+  font-size: 13px;
+  font-family: "Sora", sans-serif;
+  color: #475569;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  width: 200px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.db-search-box input:focus {
+  border-color: #94a3b8;
+}
+
+.db-search-icon {
+  position: absolute;
+  right: 12px;
+  color: #94a3b8;
+  font-size: 13px;
+  pointer-events: none;
+}
+
+.db-new-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  font-size: 13.5px;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  color: #fff;
+  background: #3b82f6;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.db-new-btn:hover {
+  background: #2563eb;
+}
+
+.db-new-btn svg {
+  font-size: 11px;
+}

@@ -1,0 +1,375 @@
+﻿/* ══════════════════════════════════════════
+   FORMULAIRE NOUVELLE MISSION (3 étapes)
+══════════════════════════════════════════ */
+
+/* Ajustements de la zone principale */
+.nm-main {
+  gap: 0;
+  padding-bottom: 80px; /* espace pour le footer fixe */
+}
+
+.nm-topbar {
+  margin-bottom: 20px;
+}
+
+/* Carte blanche du formulaire */
+.nm-form-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 32px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* ── Barre de progression ── */
+.nm-progress {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.nm-step-bar {
+  flex: 1;
+  height: 6px;
+  border-radius: 99px;
+  background: #e2e8f0;
+  transition: background 0.3s;
+}
+
+.nm-step-bar.active {
+  background: #3b82f6;
+}
+
+/* ── Texte intro ── */
+.nm-intro {
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0 0 24px;
+}
+
+/* ── Séparateur ── */
+.nm-divider {
+  border: none;
+  border-top: 1px solid #f1f5f9;
+  margin: 24px 0;
+}
+
+/* ── Ligne de champ (2 colonnes) ── */
+.nm-field-row {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.nm-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.nm-required {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+.nm-hint {
+  font-size: 12.5px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Inputs ── */
+.nm-input {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 13.5px;
+  font-family: "Sora", sans-serif;
+  color: #334155;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.nm-input:focus {
+  border-color: #3b82f6;
+}
+
+.nm-input::placeholder {
+  color: #cbd5e1;
+}
+
+.nm-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.nm-select {
+  appearance: none;
+  cursor: pointer;
+}
+
+/* ── Champ date avec icône ── */
+.nm-date-wrap {
+  position: relative;
+}
+
+.nm-date-wrap .nm-input {
+  padding-right: 40px;
+}
+
+.nm-date-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+/* ── Suggestions ── */
+.nm-suggestions {
+  margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nm-suggestions-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #3b82f6;
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+.nm-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nm-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-family: "Sora", sans-serif;
+  font-weight: 500;
+  color: #475569;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 99px;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+
+.nm-chip:hover {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  color: #3b82f6;
+}
+
+/* ── Pied de formulaire (fixe en bas) ── */
+.nm-footer {
+  position: fixed;
+  bottom: 0;
+  left: 220px; /* largeur de la sidebar */
+  right: 0;
+  background: #fff;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  z-index: 10;
+}
+
+.nm-footer-profile {
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-family: "Sora", sans-serif;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.nm-footer-profile:hover {
+  color: #475569;
+}
+
+.nm-footer-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.nm-btn-cancel {
+  padding: 9px 22px;
+  font-size: 13.5px;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  color: #fff;
+  background: #f97316;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.nm-btn-cancel:hover {
+  background: #ea580c;
+}
+
+.nm-btn-continue {
+  padding: 9px 22px;
+  font-size: 13.5px;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  color: #fff;
+  background: #3b82f6;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.nm-btn-continue:hover {
+  background: #2563eb;
+}
+
+/* ══════════════════════════════════════════
+   ÉTAPE 3 — RÉCAPITULATIF
+══════════════════════════════════════════ */
+
+.nm-recap-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 24px;
+}
+
+.nm-recap-body {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ── Colonne gauche ── */
+.nm-recap-offer-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.nm-recap-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6 30%, #6366f1 100%);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nm-recap-offer-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 4px;
+}
+
+.nm-recap-offer-meta {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.nm-recap-company {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f766e;
+  margin: 0 0 4px;
+}
+
+.nm-recap-company-desc {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0 0 16px;
+}
+
+.nm-recap-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 16px 0 8px;
+}
+
+.nm-recap-text {
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0;
+  white-space: pre-line;
+}
+
+.nm-recap-list {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nm-recap-list li {
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.nm-recap-empty {
+  font-size: 13.5px;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+/* ── Colonne droite ── */
+.nm-recap-info {
+  font-size: 14px;
+  color: #334155;
+  margin: 0 0 14px;
+  line-height: 1.5;
+}
+
+.nm-recap-info strong {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.nm-recap-map {
+  width: 100%;
+  height: 220px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  margin-top: 8px;
+}
