@@ -1,13 +1,18 @@
 import "../App.css";
+import { useState } from "react";
 import {
   FaBell,
   FaChevronDown,
   FaClipboardCheck,
   FaFacebook,
   FaFileInvoiceDollar,
+  FaQuestionCircle,
+  FaSignOutAlt,
+  FaThLarge,
   FaRegCompass,
   FaRocket,
   FaTools,
+  FaUser,
   FaInstagram,
   FaGlobe,
   FaLinkedin,
@@ -16,6 +21,8 @@ import {
 import { Link } from "react-router-dom";
 
 function EnterprisePage() {
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+
   return (
     <div className="app-root enterprise-root">
       <header className="topbar">
@@ -47,12 +54,66 @@ function EnterprisePage() {
             className="avatar-btn"
             type="button"
             aria-label="Profil utilisateur"
+            aria-expanded={isUserMenuOpen}
+            onClick={() => setIsUserMenuOpen((prev) => !prev)}
           >
             <span className="avatar" aria-hidden="true" />
             <span className="caret" aria-hidden="true">
               <FaChevronDown />
             </span>
           </button>
+
+          {isUserMenuOpen ? (
+            <div
+              className="enterprise-user-menu"
+              role="menu"
+              aria-label="Menu utilisateur"
+            >
+              <div className="enterprise-user-menu-head">
+                <span className="avatar mini" aria-hidden="true" />
+                <div>
+                  <p>Olivier</p>
+                  <small>olivier@gmail.com</small>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                className="enterprise-user-menu-item"
+                role="menuitem"
+              >
+                <FaUser aria-hidden="true" />
+                Profil
+              </button>
+
+              <button
+                type="button"
+                className="enterprise-user-menu-item"
+                role="menuitem"
+              >
+                <FaThLarge aria-hidden="true" />
+                Dashboard
+              </button>
+
+              <button
+                type="button"
+                className="enterprise-user-menu-item"
+                role="menuitem"
+              >
+                <FaQuestionCircle aria-hidden="true" />
+                Support
+              </button>
+
+              <button
+                type="button"
+                className="enterprise-user-menu-item danger"
+                role="menuitem"
+              >
+                <FaSignOutAlt aria-hidden="true" />
+                Deconnexion
+              </button>
+            </div>
+          ) : null}
         </div>
       </header>
 
@@ -253,7 +314,10 @@ function EnterprisePage() {
           <div className="enterprise-testimonials-head">
             <div>
               <h2>Les témoignages</h2>
-              <p>Lorem ipsum dolor sit amet consectetur. Varius morbi.</p>
+              <p>
+                Découvrez ce que nos entreprises partenaires pensent de leur
+                expérience avec Half-toJob.
+              </p>
             </div>
             <div className="enterprise-testimonials-nav">
               <button type="button">‹ Précédent</button>

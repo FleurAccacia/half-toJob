@@ -75,12 +75,12 @@ function StudentPage() {
     {
       name: "Kossi Adeb",
       quote:
-        "Merci à toute l&apos;équipe pour votre écoute et votre réactivité. Continuez comme ça, ça donne envie de travailler.",
+        "Merci à toute l'équipe pour votre écoute et votre réactivité. Continuez comme ça, ça donne envie de travailler.",
     },
     {
       name: "Isabelle KAKO",
       quote:
-        "Grâce à cette plateforme, j&apos;ai trouvé un job étudiant en moins d&apos;une semaine. L&apos;équipe est réactive et les entreprises sont sérieuses.",
+        "Grâce à cette plateforme, j'ai trouvé un job étudiant en moins d'une semaine. L'équipe est réactive et les entreprises sont sérieuses.",
     },
     {
       name: "Kokoe MABE",
@@ -389,8 +389,8 @@ function StudentPage() {
               <span className="brand-text">Half-toJob</span>
             </Link>
             <p>
-              La plateforme qui connecte les jeunes en quete d&apos;opportunites
-              et les entreprises a la recherche de main-d&apos;oeuvre ponctuelle
+              La plateforme qui connecte les jeunes en quête d&apos;opportunités
+              et les entreprises à la recherche de main-d&apos;œuvre ponctuelle
             </p>
           </div>
 
@@ -398,7 +398,7 @@ function StudentPage() {
             <h3>Accueil</h3>
             <a href="#jobs">Jobs</a>
             <a href="#tarifs">Tarifs</a>
-            {/* <a href="#privacy">Politique de confidentialite</a> */}
+            {/* <a href="#privacy">Politique de confidentialité</a> */}
           </div>
 
           <div className="footer-col">
@@ -409,7 +409,7 @@ function StudentPage() {
 
           <div className="footer-col footer-newsletter" id="contact">
             <h3>Souscrivez aux nouvelles</h3>
-            <p>Les dernieres nouvelles sur les missions, les entreprises.</p>
+            <p>Les dernières nouvelles sur les missions, les entreprises.</p>
             <form onSubmit={(e) => e.preventDefault()}>
               <input type="email" placeholder="Email" aria-label="Email" />
               <button type="submit">Souscrire</button>
@@ -418,16 +418,16 @@ function StudentPage() {
         </div>
 
         <div className="footer-bottom">
-          <p>2024 @ Half-toJob. Tous droits reserves.</p>
+          <p>2024 @ Half-toJob. Tous droits réservés.</p>
 
-          <div className="social-links" aria-label="Reseaux sociaux">
+          <div className="social-links" aria-label="Réseaux sociaux">
             <a href="#" aria-label="Facebook">
               <FaFacebook className="icon-social" />
             </a>
             <a href="#" aria-label="Instagram">
               <FaInstagram className="icon-social" />
             </a>
-            <a href="#" aria-label="Whatsapp">
+            <a href="#" aria-label="WhatsApp">
               <FaWhatsapp className="icon-social" />
             </a>
             <a href="#" aria-label="LinkedIn">

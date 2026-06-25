@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 # half-toJob
+=======
+# React + Vite
 
-Landing page Half-toJob construite avec React.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Scripts
+Currently, two official plugins are available:
 
-- `npm start`: lance le serveur de developpement
-- `npm run build`: genere le build de production
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+>>>>>>> 95bc606 (landing page Etudiant/Entreprises)
